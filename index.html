@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDP - Centro de Desarrollo Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --primary:#032b5b;
+      --secondary:#0ea5a5;
+      --accent:#ff8c00;
+      --light:#f4f8fb;
+      --dark:#0b1220;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--light);
+      color:#1f2937;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1200px, 92%);
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      background:rgba(3,43,91,0.95);
+      backdrop-filter:blur(10px);
+      box-shadow:0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--white);
+      font-weight:800;
+      font-size:1.2rem;
+    }
+
+    .logo span{
+      color:var(--secondary);
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:1.5rem;
+      align-items:center;
+    }
+
+    nav ul li{
+      position:relative;
+    }
+
+    nav ul li a{
+      color:var(--white);
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#7dd3fc;
+    }
+
+    .dropdown{
+      position:absolute;
+      top:35px;
+      left:0;
+      background:var(--white);
+      width:320px;
+      border-radius:16px;
+      padding:1rem;
+      box-shadow:var(--shadow);
+      opacity:0;
+      visibility:hidden;
+      transition:0.3s;
+    }
+
+    .dropdown h4{
+      color:var(--primary);
+      margin-bottom:10px;
+      font-size:0.95rem;
+    }
+
+    .dropdown a{
+      display:block;
+      color:#374151;
+      margin-bottom:8px;
+      font-size:0.9rem;
+    }
+
+    nav ul li:hover .dropdown{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .menu-toggle{
+      display:none;
+      color:white;
+      font-size:1.5rem;
+      cursor:pointer;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      background:linear-gradient(rgba(3,43,91,0.82), rgba(3,43,91,0.85)),
+      url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      color:white;
+      padding-top:90px;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h1{
+      font-size:clamp(2.5rem,6vw,5rem);
+      line-height:1.1;
+      margin-bottom:1rem;
+      font-weight:800;
+    }
+
+    .hero h1 span{
+      color:#67e8f9;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+      color:#e5e7eb;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s ease;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+      background:#e67800;
+    }
+
+    .btn-secondary{
+      border:2px solid white;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:white;
+      color:var(--primary);
+    }
+
+    /* SECTIONS */
+
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:2.3rem;
+      color:var(--primary);
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#6b7280;
+      max-width:700px;
+      margin:auto;
+    }
+
+    /* ABOUT */
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+      align-items:center;
+    }
+
+    .about-card{
+      background:white;
+      padding:2rem;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      transition:0.3s;
+    }
+
+    .about-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .about-card i{
+      font-size:2rem;
+      color:var(--secondary);
+      margin-bottom:1rem;
+    }
+
+    .about-card h3{
+      color:var(--primary);
+      margin-bottom:1rem;
+    }
+
+    .mission-vision{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+      margin-top:3rem;
+    }
+
+    .mv-box{
+      background:linear-gradient(135deg,var(--primary),#064e8d);
+      color:white;
+      padding:2rem;
+      border-radius:25px;
+      box-shadow:var(--shadow);
+    }
+
+    .mv-box h3{
+      margin-bottom:1rem;
+      font-size:1.5rem;
+    }
+
+    /* STATS */
+
+    .stats{
+      background:linear-gradient(135deg,var(--primary),#021d3d);
+      color:white;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.5rem;
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:2rem;
+      text-align:center;
+      border-radius:20px;
+      backdrop-filter:blur(5px);
+    }
+
+    .stat-card i{
+      font-size:2.5rem;
+      margin-bottom:1rem;
+      color:#67e8f9;
+    }
+
+    .stat-card h3{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    /* VALUE */
+
+    .value-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem;
+    }
+
+    .value-item{
+      background:white;
+      padding:2rem;
+      border-radius:20px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .value-item i{
+      font-size:2rem;
+      color:var(--accent);
+      margin-bottom:1rem;
+    }
+
+    /* COURSES */
+
+    .courses{
+      background:#eef5fa;
+    }
+
+    .courses-category{
+      margin-bottom:4rem;
+    }
+
+    .courses-category h3{
+      color:var(--primary);
+      font-size:1.8rem;
+      margin-bottom:2rem;
+      border-left:6px solid var(--accent);
+      padding-left:12px;
+    }
+
+    .courses-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:2rem;
+    }
+
+    .course-card{
+      background:white;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:0.3s ease;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .course-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .course-header{
+      background:linear-gradient(135deg,var(--primary),#0b5ea8);
+      color:white;
+      padding:1.5rem;
+    }
+
+    .course-header h4{
+      font-size:1.3rem;
+      margin-bottom:10px;
+    }
+
+    .badge{
+      background:var(--accent);
+      color:white;
+      padding:6px 12px;
+      border-radius:50px;
+      display:inline-block;
+      font-size:0.8rem;
+      font-weight:600;
+    }
+
+    .course-body{
+      padding:1.5rem;
+      flex:1;
+    }
+
+    .course-body p{
+      margin-bottom:12px;
+      color:#4b5563;
+    }
+
+    .course-body i{
+      color:var(--secondary);
+      margin-right:8px;
+    }
+
+    .course-footer{
+      padding:0 1.5rem 1.5rem;
+    }
+
+    .course-footer a{
+      width:100%;
+      text-align:center;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      background:linear-gradient(135deg,var(--primary),#05264d);
+      color:white;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem;
+      align-items:center;
+    }
+
+    .contact-info h3{
+      font-size:2rem;
+      margin-bottom:1rem;
+    }
+
+    .contact-item{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      margin-bottom:1.2rem;
+      font-size:1rem;
+    }
+
+    .contact-item i{
+      width:50px;
+      height:50px;
+      background:rgba(255,255,255,0.1);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#67e8f9;
+    }
+
+    .contact-card{
+      background:white;
+      color:#1f2937;
+      padding:2rem;
+      border-radius:25px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-card h4{
+      color:var(--primary);
+      margin-bottom:1rem;
+      font-size:1.5rem;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#02152d;
+      color:white;
+      text-align:center;
+      padding:1.5rem;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      width:65px;
+      height:65px;
+      background:#25D366;
+      color:white;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+      z-index:999;
+      transition:0.3s;
+    }
+
+    .whatsapp:hover{
+      transform:scale(1.1);
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+      nav{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:var(--primary);
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s;
+      }
+
+      nav.active{
+        max-height:700px;
+      }
+
+      nav ul{
+        flex-direction:column;
+        padding:1rem 0 2rem;
+      }
+
+      .dropdown{
+        position:static;
+        opacity:1;
+        visibility:visible;
+        width:100%;
+        margin-top:10px;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+        CDP <span>Profesional</span>
+      </div>
+
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <nav id="nav-menu">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+
+          <li>
+            <a href="#cursos">Oferta Académica <i class="fa-solid fa-angle-down"></i></a>
+
+            <div class="dropdown">
+              <h4>Cursos Presenciales</h4>
+              <a href="#cursos">Mecánica de Motos</a>
+              <a href="#cursos">Soldadura Eléctrica</a>
+              <a href="#cursos">Auxiliar de Enfermería</a>
+              <a href="#cursos">Farmacia</a>
+              <a href="#cursos">Taller de Sueros y Sutura</a>
+              <a href="#cursos">Curso de Tatuajes</a>
+
+              <hr style="margin:10px 0;">
+
+              <h4>Cursos Virtuales</h4>
+              <a href="#cursos">Excel y Word</a>
+              <a href="#cursos">Química Orgánica</a>
+              <a href="#cursos">Mecánica Automotriz</a>
+              <a href="#cursos">Taller de IA</a>
+              <a href="#cursos">Auxiliar de Enfermería</a>
+            </div>
+          </li>
+
+          <li><a href="#sobre">Sobre Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <h1>Formando talento para el <span>mundo profesional</span></h1>
+      <p>
+        En CDP impulsamos el desarrollo académico, técnico y empresarial mediante programas prácticos, accesibles y modernos para estudiantes, emprendedores y profesionales.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#cursos" class="btn btn-primary">Ver Cursos</a>
+        <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>¿Qué es CDP?</h2>
+        <p>
+          Centro de Desarrollo Profesional especializado en cursos técnicos, tutorías, talleres y capacitaciones empresariales.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Innovación</h3>
+          <p>
+            Utilizamos metodologías modernas y herramientas actualizadas para garantizar un aprendizaje efectivo.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Comunidad</h3>
+          <p>
+            Creamos una red de estudiantes, profesionales y empresas en crecimiento constante.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-award"></i>
+          <h3>Excelencia</h3>
+          <p>
+            Contamos con instructores con experiencia profesional y pedagógica en cada área.
+          </p>
+        </div>
+      </div>
+
+      <div class="mission-vision">
+        <div class="mv-box">
+          <h3>Misión</h3>
+          <p>
+            Impulsar el desarrollo académico, profesional y empresarial mediante formación técnica y práctica de alta calidad adaptada a las necesidades del mercado laboral actual.
+          </p>
+        </div>
+
+        <div class="mv-box">
+          <h3>Visión</h3>
+          <p>
+            Ser la academia líder en formación técnica y empresarial en la región, reconocida por la excelencia y el impacto positivo en sus estudiantes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="historia">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestra Historia</h2>
+        <p>De la resiliencia al liderazgo educativo.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <i class="fa-solid fa-laptop-house"></i>
+          <h3>2020: El Nacimiento en Tiempos de Cambio</h3>
+          <p>
+            En mayo de 2020 nació ALTA PINTA como una respuesta educativa ante los retos de la pandemia. Iniciamos brindando tutorías virtuales, apoyo en exámenes y acompañamiento académico, convirtiéndonos en un puente hacia el éxito para muchos estudiantes.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-school"></i>
+          <h3>2025: Un Sueño que Cobra Forma Física</h3>
+          <p>
+            Después de años de crecimiento y confianza, abrimos nuestras primeras instalaciones físicas. Lo virtual se transformó en un espacio real de aprendizaje, práctica y formación presencial para nuevos estudiantes.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <i class="fa-solid fa-building-columns"></i>
+          <h3>Hoy: La Evolución hacia CDP</h3>
+          <p>
+            En diciembre de 2025 evolucionamos oficialmente a CDP, Centro de Desarrollo Profesional. Actualmente somos una academia líder en formación técnica, laboral y académica, combinando enseñanza presencial y virtual para todas las edades.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="color:white;">Impacto de CDP</h2>
+        <p style="color:#d1d5db;">Nuestros resultados reflejan el compromiso con la educación y el desarrollo profesional.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <i class="fa-solid fa-user-graduate"></i>
+          <h3>+100</h3>
+          <p>Profesionales formados</p>
+        </div>
+
+        <div class="stat-card">
+          <i class="fa-solid fa-building"></i>
+          <h3>+10</h3>
+          <p>Empresas atendidas</p>
+        </div>
+
+        <div class="stat-card">
+          <i class="fa-solid fa-book"></i>
+          <h3>+50</h3>
+          <p>Programas disponibles</p>
+        </div>
+
+        <div class="stat-card">
+          <i class="fa-solid fa-star"></i>
+          <h3>98%</h3>
+          <p>Satisfacción de clientes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>¿Por qué elegir CDP?</h2>
+        <p>
+          Formación práctica, flexible y enfocada en resultados reales.
+        </p>
+      </div>
+
+      <div class="value-grid">
+        <div class="value-item">
+          <i class="fa-solid fa-laptop"></i>
+          <h3>Programas Prácticos</h3>
+          <p>Aprendizaje basado en casos y aplicaciones reales.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fa-solid fa-clock"></i>
+          <h3>Horarios Flexibles</h3>
+          <p>Opciones presenciales y virtuales adaptadas a tu tiempo.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fa-solid fa-wallet"></i>
+          <h3>Precios Accesibles</h3>
+          <p>Educación de calidad con costos accesibles y promociones.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fa-solid fa-certificate"></i>
+          <h3>Reconocimiento</h3>
+          <p>Constancias y reconocimiento al completar tus cursos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="courses" id="cursos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Oferta Académica</h2>
+        <p>
+          Descubre nuestros programas técnicos, laborales y de ciencias médicas.
+        </p>
+      </div>
+
+      <div class="courses-category">
+        <h3>Cursos Presenciales</h3>
+
+        <div class="courses-grid">
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Mecánica de Motos</h4>
+              <span class="badge">Presencial</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-screwdriver-wrench"></i> Mantenimiento preventivo y correctivo.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 4 meses</p>
+              <p><i class="fa-solid fa-clock"></i> Sábados 11am a 4pm</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Inscribirme</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Soldadura Eléctrica</h4>
+              <span class="badge">Presencial</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-bolt"></i> Aprende a soldar profesionalmente.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 9 domingos</p>
+              <p><i class="fa-solid fa-clock"></i> Horario flexible</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Auxiliar de Enfermería</h4>
+              <span class="badge">Presencial</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-heart-pulse"></i> Introducción al área de salud.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 6 meses</p>
+              <p><i class="fa-solid fa-clock"></i> Martes de 6pm a 8pm</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Taller de Sueros y Sutura</h4>
+              <span class="badge">Presencial</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-syringe"></i> Hipodermia, signos vitales y sutura.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 4 meses</p>
+              <p><i class="fa-solid fa-clock"></i> Sábados 11am a 4pm</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Curso de Tatuajes</h4>
+              <span class="badge">Presencial</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-pen"></i> Aprende arte corporal y técnicas modernas de tatuaje.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: Junio a Noviembre</p>
+              <p><i class="fa-solid fa-clock"></i> Horario: Sábados de 2pm a 5pm</p>
+              <p><i class="fa-solid fa-location-dot"></i> Zona 12, Ciudad de Guatemala</p>
+              <p><i class="fa-solid fa-money-bill"></i> Q400 mensuales</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Inscribirme</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="courses-category">
+        <h3>Cursos Virtuales</h3>
+
+        <div class="courses-grid">
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Excel y Word</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-file-excel"></i> Herramientas de oficina y productividad.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 2 meses</p>
+              <p><i class="fa-solid fa-globe"></i> Acceso virtual</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Inscribirme</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Química Orgánica</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-flask"></i> Fundamentos y aplicaciones prácticas.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 3 meses</p>
+              <p><i class="fa-solid fa-globe"></i> Clases virtuales</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Taller de IA</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-robot"></i> Aprende herramientas modernas de inteligencia artificial.</p>
+              <p><i class="fa-solid fa-calendar"></i> Modalidad intensiva</p>
+              <p><i class="fa-solid fa-globe"></i> Clases online</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Inscribirme</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Mecánica Automotriz Virtual</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-car"></i> Aprende fundamentos de mecánica automotriz desde casa.</p>
+              <p><i class="fa-solid fa-calendar"></i> Duración: 6 meses</p>
+              <p><i class="fa-solid fa-globe"></i> Modalidad completamente virtual</p>
+              <p><i class="fa-solid fa-laptop"></i> Clases prácticas y teóricas online</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Farmacia Virtual</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-pills"></i> Formación farmacéutica desde casa.</p>
+              <p><i class="fa-solid fa-calendar"></i> Horarios flexibles</p>
+              <p><i class="fa-solid fa-globe"></i> Modalidad virtual</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Más Información</a>
+            </div>
+          </div>
+
+          <div class="course-card">
+            <div class="course-header">
+              <h4>Auxiliar de Enfermería</h4>
+              <span class="badge">Virtual</span>
+            </div>
+            <div class="course-body">
+              <p><i class="fa-solid fa-stethoscope"></i> Formación introductoria en salud.</p>
+              <p><i class="fa-solid fa-calendar"></i> Clases en línea</p>
+              <p><i class="fa-solid fa-globe"></i> Acceso remoto</p>
+            </div>
+            <div class="course-footer">
+              <a href="https://wa.me/50251088619" class="btn btn-primary">Inscribirme</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h3>Contáctanos</h3>
+          <p style="margin-bottom:2rem; color:#d1d5db;">
+            Estamos listos para ayudarte a iniciar tu formación profesional.
+          </p>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>5108 8619</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>contactocdpgt@gmail.com</span>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>@cdpguate</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h4>Inscríbete Hoy</h4>
+          <p style="margin-bottom:1.5rem;">
+            Solicita información sobre horarios, costos y promociones disponibles.
+          </p>
+
+          <a href="https://wa.me/50251088619" class="btn btn-primary" style="width:100%; text-align:center;">
+            Hablar por WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 CDP - Centro de Desarrollo Profesional | Formando talento para el mundo profesional.</p>
+  </footer>
+
+  <a href="https://wa.me/50251088619" class="whatsapp" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav-menu');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
