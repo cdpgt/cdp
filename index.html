@@ -1,0 +1,325 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDP - Centro de Desarrollo Profesional</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fb;
+            color: #1b1b1b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #002855, #009ca6);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #002855;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #009ca6;
+        }
+
+        section {
+            padding: 70px 10%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo h2 {
+            font-size: 2.7rem;
+            color: #002855;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #555;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: #009ca6;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .beneficios {
+            background: linear-gradient(135deg, #009ca6, #00c3a5);
+            color: white;
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .beneficios h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .beneficio {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 18px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contacto {
+            background: #002855;
+            color: white;
+            border-radius: 25px;
+            text-align: center;
+            padding: 60px 30px;
+        }
+
+        .contacto h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .contacto p {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: #00c3a5;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #00a58b;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #00152d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CDP</h1>
+        <p>
+            Centro de Desarrollo Profesional - Cursos libres 2026 en áreas técnicas,
+            laborales y ciencias médicas.
+        </p>
+    </header>
+
+    <nav>
+        <a href="#cursos">Cursos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="cursos">
+        <div class="titulo">
+            <h2>Nuestros Cursos</h2>
+            <p>Prepárate para transformar tu futuro con educación accesible.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Mecánica de Motos</h3>
+                <p><strong>Duración:</strong> 4 meses</p>
+                <p><strong>Costo:</strong> Q300 mensuales</p>
+                <p>Mantenimiento preventivo y correctivo de motocicletas.</p>
+            </div>
+
+            <div class="card">
+                <h3>Soldadura Eléctrica</h3>
+                <p><strong>Duración:</strong> 9 domingos</p>
+                <p><strong>Costo:</strong> Q900 pago único</p>
+                <p>Aprende soldadura práctica desde cero.</p>
+            </div>
+
+            <div class="card">
+                <h3>Auxiliar de Enfermería</h3>
+                <p><strong>Duración:</strong> 6 meses</p>
+                <p><strong>Costo:</strong> Q250 mensuales</p>
+                <p>Curso completo para ingresar al mundo de la salud.</p>
+            </div>
+
+            <div class="card">
+                <h3>Farmacia</h3>
+                <p><strong>Duración:</strong> 5 meses</p>
+                <p><strong>Costo:</strong> Q250 mensuales</p>
+                <p>Aprende fundamentos y atención farmacéutica.</p>
+            </div>
+
+            <div class="card">
+                <h3>Excel y Word</h3>
+                <p><strong>Duración:</strong> 2 meses</p>
+                <p><strong>Costo:</strong> Q300 pago único</p>
+                <p>Domina herramientas digitales esenciales.</p>
+            </div>
+
+            <div class="card">
+                <h3>Mecánica Automotriz</h3>
+                <p><strong>Duración:</strong> 6 meses</p>
+                <p><strong>Costo:</strong> Q250 mensuales</p>
+                <p>Capacitación técnica automotriz profesional.</p>
+            </div>
+
+            <div class="card">
+                <h3>Química Orgánica</h3>
+                <p><strong>Duración:</strong> 3 meses</p>
+                <p><strong>Costo:</strong> Q250 mensuales</p>
+                <p>Aprende conceptos esenciales de química aplicada.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="beneficios">
+            <h2>¿Por qué estudiar en CDP?</h2>
+
+            <div class="beneficios-grid">
+                <div class="beneficio">
+                    <h3>10% de descuento</h3>
+                    <p>En tu primera mensualidad.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>50% de descuento</h3>
+                    <p>En inscripción.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>Modalidad flexible</h3>
+                    <p>Presencial y virtual.</p>
+                </div>
+
+                <div class="beneficio">
+                    <h3>Precios accesibles</h3>
+                    <p>Educación de calidad al alcance de todos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="contacto">
+            <h2>Contáctanos</h2>
+
+            <p><strong>WhatsApp:</strong> 51088619</p>
+            <p><strong>Instagram:</strong> @cdpguate</p>
+            <p><strong>Correo:</strong> contactocdpgt@gmail.com</p>
+
+            <a class="boton" href="https://wa.me/50251088619" target="_blank">
+                Escríbenos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 CDP - Centro de Desarrollo Profesional</p>
+    </footer>
+
+</body>
+</html>
+```
