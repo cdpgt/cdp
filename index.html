@@ -506,6 +506,41 @@
       transform:scale(1.1);
     }
 
+    .social-float{
+      position:fixed;
+      right:20px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:1.5rem;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      z-index:999;
+      transition:0.3s ease;
+    }
+
+    .social-float:hover{
+      transform:scale(1.1);
+    }
+
+    .facebook{
+      background:#1877f2;
+      bottom:95px;
+    }
+
+    .instagram{
+      background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4);
+      bottom:170px;
+    }
+
+    .tiktok{
+      background:#000000;
+      bottom:245px;
+    }
+
     /* MOBILE */
 
     @media(max-width:900px){
@@ -1014,6 +1049,18 @@
 
   <a href="https://wa.me/50251088619" class="whatsapp" target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <a href="https://www.facebook.com/cdpguate" class="social-float facebook" target="_blank">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/cdpguate/?hl=es" class="social-float instagram" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://www.tiktok.com/@cdpguate" class="social-float tiktok" target="_blank">
+    <i class="fa-brands fa-tiktok"></i>
   </a>
 
   <script>
